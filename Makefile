@@ -6,7 +6,7 @@
 #    By: lajudy <lajudy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 17:15:03 by lajudy            #+#    #+#              #
-#    Updated: 2021/11/05 20:55:24 by lajudy           ###   ########.fr        #
+#    Updated: 2021/11/05 21:07:22 by lajudy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,16 @@ SRCS =	error_handling.c ft_atoi.c libft.c\
 		stack_sort_utils.c\
 		stack_utils.c stack_utils2.c\
 		transfer_to_a.c transfer_to_a2.c\
-		ft_split.c
-MAIN =	main.c
+		ft_split.c main.c
 
-BSRCS = checker.c checker_utils.c libft_checker.c\
+BSRCS = ft_split.c libft.c stack_utils.c\
+		stack_utils2.c ft_atoi.c error_handling.c\
+		stack_actions.c stack_actions2.c\
+		checker.c checker_utils.c libft_checker.c\
 		stack_actions3.c
 
 HDRS =	push_swap.h
 
-MOBJS = $(MAIN:.c=.o)
 OBJS = 	$(SRCS:.c=.o)
 BOBJS = $(BSRCS:.c=.o)
 
@@ -43,17 +44,16 @@ $(BOBJS):$(HDRS) Makefile
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME):$(OBJS) $(MOBJS)
-	$(CC) $(CFLAGS) $(MOBJS) $(OBJS) -o $(NAME)
+$(NAME):$(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 bonus: $(BNAME)
 
-$(BNAME):$(OBJS) $(BOBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(BOBJS) -o $(BNAME)
+$(BNAME): $(BOBJS)
+	$(CC) $(CFLAGS) $(BOBJS) -o $(BNAME)
 
 clean:
 	${RM} ${OBJS}
-	${RM} ${MOBJS}
 	${RM} ${BOBJS}
 
 fclean: clean
