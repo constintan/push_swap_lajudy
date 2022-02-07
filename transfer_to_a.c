@@ -12,6 +12,8 @@
 
 #include "push_swap.h"
 
+/* For each number we need not only forward rotation but also backward.
+ * May be it is cheaper for some numbers to rotate reversed way. */
 void	scoring_in_b(t_stack_elem *head_b)
 {
 	int	size;
@@ -28,6 +30,8 @@ void	scoring_in_b(t_stack_elem *head_b)
 	}
 }
 
+/* Scoring for "how much will it cost to put a specific number into the right place to keep the pre-sort in stack A.
+ * Scoring for rotate and r-rotate*/
 void	scoring_in_a(t_stack_elem *head_a, t_stack_elem *head_b)
 {
 	t_stack_elem	*save_point;
@@ -57,6 +61,13 @@ void	scoring_in_a(t_stack_elem *head_a, t_stack_elem *head_b)
 	}
 }
 
+/*big task for the function: to find best number from stack B to transfer it back.
+ * best number in terms of how many operations need to be done to put in into the stack
+ * to keep stack A right way pre-sorted all the time
+ * 1. Making scores for each number to rotate and r-rotate (reverse) into stack B
+ * 2. For each number in B scoring rotation and r-rotation in stack A (to put it into the right place
+ * 3. Comparing the result, making decision = choosing the best-score-number
+ * 4. Processing a decision: making and printing swapping-rotating and all of then*/
 void	transfer_to_a(t_stack_elem **head_a, t_stack_elem **head_b)
 {
 	t_stack_elem	*best_rank_elem;

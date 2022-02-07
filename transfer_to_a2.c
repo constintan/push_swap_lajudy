@@ -27,6 +27,15 @@ int	total_score_elem2(int result, t_stack_elem *head, int *ttype)
 	return (result);
 }
 
+/* Assigning the first number as the best and then look for something more suitable
+ * Also assigning transfer_type (ttype)
+ * There are 6 different transfer types:
+ * ttype = 1, b_score bigger.					Would apply: rb + rr
+ * ttype = 2, a_score bigger or equal.			Would apply: или равно. rr + ra
+ * ttype = 3 b_rscore bigger then a_rscore.		Would apply: rrb + rrr
+ * ttype = 4 a_rscore bigger or equal.			Would apply: b_rscore. rrr + rra
+ * ttype = 5, rotate stacks in different ways.	Would apply: rb + rra
+ * ttype = 6, rotate stacks in different ways.	Would apply: rrb + ra*/
 int	total_score_elem(t_stack_elem *head, int *ttype)
 {
 	int	result;
@@ -54,6 +63,9 @@ int	total_score_elem(t_stack_elem *head, int *ttype)
 	return (result);
 }
 
+/* Now we need to decide: which element to transfer bask to stack A.
+ * Function returns an element to transfer and an id-code of transfer_type
+*/
 t_stack_elem	*make_decision(t_stack_elem *head, int *transfer_type)
 {
 	t_stack_elem	*save_point;
@@ -83,15 +95,6 @@ t_stack_elem	*make_decision(t_stack_elem *head, int *transfer_type)
 	return (save_point);
 }
 
-/*
-ttype = 1, b_score больше. rb + rr
-ttype = 2, a_score больше или равно. rr + ra
-ttype = 3 b_rscore больше a_rscore. rrb + rrr
-ttype = 4 a_rscore больше или равно b_rscore. rrr + rra
-ttype = 5, rb + rra
-ttype = 6, rrb + ra
-*/
-
 void	process_decision2(t_stack_elem **head_a, t_stack_elem **head_b,
 	t_stack_elem *elem, int *ttype)
 {
@@ -118,14 +121,9 @@ void	process_decision2(t_stack_elem **head_a, t_stack_elem **head_b,
 	}
 }
 
-/*
-ttype = 1, b_score больше. rb + rr
-ttype = 2, a_score больше или равно . rr + ra
-ttype = 3 b_rscore больше a_rscore. rrb + rrr
-ttype = 4 a_rscore больше или равно b_rscore. rrr + rra
-ttype = 5, rb + rra
-ttype = 6, rrb + ra
-*/
+/* Processing desion: making rotation (or r-rotation) in stack B, in stack A or in both stacks togeter.
+ * When both stacks are ready making pa-operetion = pushing to the top of stack A.
+ * THAT'S IT! */
 void	process_decision(t_stack_elem **head_a, t_stack_elem **head_b,
 	t_stack_elem *elem, int *ttype)
 {

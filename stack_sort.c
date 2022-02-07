@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_triple(t_stack_elem **head)
+void	presort_triple(t_stack_elem **head)
 {
 	int	size;
 	int	first;
@@ -34,6 +34,9 @@ void	sort_triple(t_stack_elem **head)
 	}
 }
 
+/*filling stack B with numbers from A
+ * in stack A stays only max, min and mediana
+ * in the very end of the function it is pre-sorting these three numbers */
 t_stack_elem	*fill_stack_b(t_stack_elem **head)
 {
 	t_stack_elem	*head_b;
@@ -57,15 +60,22 @@ t_stack_elem	*fill_stack_b(t_stack_elem **head)
 			size--;
 		}
 	}
-	sort_triple(head);
+	presort_triple(head);
 	return (head_b);
 }
+
+/* Main function.
+ * 1. checking is the stack pre-sorted or not
+ * 1.1. pre-sorted means sorted as closed stack rotating in a circle. the uppest element could be not the least one.
+ * 2. filling stack B with numbers from stack A
+ * 3. transfering them back
+ * 4. final sorting in ascending order*/
 
 t_stack_elem	*stack_sort(t_stack_elem **head)
 {
 	t_stack_elem	*head_b;
 
-	if (is_not_sorted(*head))
+	if (is_not_presorted(*head))
 	{
 		head_b = fill_stack_b(head);
 		while (head_b)

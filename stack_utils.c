@@ -6,7 +6,7 @@
 /*   By: lajudy <lajudy@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 18:01:49 by lajudy            #+#    #+#             */
-/*   Updated: 2022/02/07 08:47:36 by lajudy           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:16:04 by lajudy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static t_stack_elem	*new_stack_elem(int value)
 	return (p);
 }
 
+// initialization of stack A and fill it up with numbers
 t_stack_elem	*stack_init(int argc, char **argv)
 {	
 	int				i;

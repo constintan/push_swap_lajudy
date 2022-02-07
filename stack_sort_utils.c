@@ -74,7 +74,7 @@ int	find_minmaxmed(t_stack_elem **head, int *min, int *max, int *med)
 	return (0);
 }
 
-int	is_not_sorted(t_stack_elem *head)
+int	is_not_presorted(t_stack_elem *head)
 {
 	t_stack_elem	*p;
 	int				flag;

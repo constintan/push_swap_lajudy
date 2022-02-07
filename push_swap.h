@@ -77,7 +77,7 @@ void			act_ss(t_stack_elem **head_a, t_stack_elem **head_b,
 					int output);
 
 // stack_sort_utils.c
-int				is_not_sorted(t_stack_elem *head);
+int				is_not_presorted(t_stack_elem *head);
 void			final_sort_stack(t_stack_elem **head);
 int				find_minmaxmed(t_stack_elem **head,
 					int *min, int *max, int *med);
