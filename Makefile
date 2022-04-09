@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lajudy <lajudy@student.21-school.ru>       +#+  +:+       +#+         #
+#    By: lajudy <lajudy@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 17:15:03 by lajudy            #+#    #+#              #
-#    Updated: 2022/02/07 08:47:28 by lajudy           ###   ########.fr        #
+#    Updated: 2022/04/09 21:59:54 by lajudy           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,8 +62,11 @@ fclean: clean
 
 re: fclean all
 
+leaks:
+	leaks --atExit -- ./$(NAME)
+
 norm:
 	norminette -R CheckForbiddenSourceHeader ${SRCS} ${BSRCS}
 	norminette -R CheckDefine ${HDRS}
 
-.PHONY: all clean fclean re bonus norm
+.PHONY: all clean fclean re bonus norm leaks

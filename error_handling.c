@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lajudy <lajudy@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: lajudy <lajudy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:39:14 by lajudy            #+#    #+#             */
-/*   Updated: 2022/02/07 08:47:21 by lajudy           ###   ########.fr       */
+/*   Updated: 2022/04/09 22:06:53 by lajudy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	not_valid_arguments(int argc, char **argv)
 	int	err;
 
 	i = 1;
+	if (argc < 2)
+		return (1);
 	while (i < argc)
 	{
 		err = there_is_non_digits(argv[i]);

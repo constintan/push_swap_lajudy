@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transfer_to_a2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lajudy <lajudy@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: lajudy <lajudy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 02:10:53 by lajudy            #+#    #+#             */
-/*   Updated: 2022/02/07 08:47:42 by lajudy           ###   ########.fr       */
+/*   Updated: 2022/04/09 22:16:41 by lajudy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	total_score_elem2(int result, t_stack_elem *head, int *ttype)
 	return (result);
 }
 
-/* Assigning the first number as the best and then look for something more suitable
+/* Assigning the first number as the best and
+ * then look for something more suitable
  * Also assigning transfer_type (ttype)
  * There are 6 different transfer types:
  * ttype = 1, b_score bigger.					Would apply: rb + rr
@@ -121,8 +122,10 @@ void	process_decision2(t_stack_elem **head_a, t_stack_elem **head_b,
 	}
 }
 
-/* Processing desion: making rotation (or r-rotation) in stack B, in stack A or in both stacks togeter.
- * When both stacks are ready making pa-operetion = pushing to the top of stack A.
+/* Processing desion: making rotation (or r-rotation) in stack B,
+ * in stack A or in both stacks togeter.
+ * When both stacks are ready making pa-operetion = pushing to the
+ * top of stack A.
  * THAT'S IT! */
 void	process_decision(t_stack_elem **head_a, t_stack_elem **head_b,
 	t_stack_elem *elem, int *ttype)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lajudy <lajudy@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: lajudy <lajudy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:06:31 by lajudy            #+#    #+#             */
-/*   Updated: 2022/02/07 08:47:35 by lajudy           ###   ########.fr       */
+/*   Updated: 2022/04/09 22:13:42 by lajudy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ t_stack_elem	*fill_stack_b(t_stack_elem **head)
 
 /* Main function.
  * 1. checking is the stack pre-sorted or not
- * 1.1. pre-sorted means sorted as closed stack rotating in a circle. the uppest element could be not the least one.
+ * 1.1. pre-sorted means sorted as closed stack rotating in a circle.
+ 	the uppest element could be not the least one.
  * 2. filling stack B with numbers from stack A
  * 3. transfering them back
  * 4. final sorting in ascending order*/
